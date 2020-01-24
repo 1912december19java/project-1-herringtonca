@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm nav-pills">
+        <strong class="navbar-brand">Employee Reinbursement Portal</strong>
+        <ul class="navbar-nav">
+            <li>
+                <a class="nav-link nav-item" href="home-screen-manager.html">Home</a>
+            </li>
+            <li>
+                <a class="nav-link nav-item" href="info-screen-manager.html" id="profile">Profile</a>
+            </li>
+            <li>
+                <a class="nav-link nav-item active" href="request-screen-manager.html">Requests</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="" id="logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Requests</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <button class="col-sm-3" id="search">Search</button>
+            <button class="col-sm-3" id="view-resolved">View All Resolved Requests</button>
+            <button class="col-sm-3" id="employees">View All Employees</button>
+            <button class="col-sm-3" id="view-pending">View All Pending Requests</button>
+        </div>
+    </div>
+    <div class="container" style="display: none" id="request-form">
+        <form id="login-form">
+            <div class="form-group">
+                <input type="text" class="form-control-lg" id="name" placeholder="Name">
+            </div>
+            <input type="submit" class="btn btn-dark" id="search-request" value="Search">
+        </form>
+    </div>
+    <div class="alert alert-success alert-dismissible" style="display: none" id="bootstrap-alert-success">
+        <strong>Success!</strong> Update Success.
+    </div>
+    <div class="container">
+        <table class="table table-striped" style="display: none;" id="table">
+            <thead>
+                <tr>
+                    <th scope="col">Status</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Description</th>
+                    <th scope="col" style="display:table-cell" id="resolved-column">Resolved By</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+        <div id="requests" style="display: none;">
+        <table class="table table-bordered" style="display: table;">
+            <thead>
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Resolve</th>
+                </tr>
+            </thead>
+            <tbody id="search-table">
+                <tr>
+ 
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn-danger rounded" type="submit" id="resolve">Resolve Requests</button>
+        </div>
+        <div style="display: table;" id="employee-view">
+            
+        </div>
+</body>
+
+<script src="request-screen-manager.js"></script>
+
+</html>
