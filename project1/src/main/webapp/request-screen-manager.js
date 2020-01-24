@@ -15,7 +15,7 @@ let searchUri = 'http://localhost:8080/project1/main/request-search';
 search.addEventListener('click', (e) => {
     e.preventDefault();
     clearRequestInfo();
-    hideRequestsTable();
+    clearTable();
     clearEmployeeView();
     populateSearch();
 });
@@ -23,7 +23,7 @@ search.addEventListener('click', (e) => {
 viewResolved.addEventListener('click', (e) => {
     e.preventDefault();
     clearRequestInfo();
-    hideRequestsTable();
+    clearTable();
     clearEmployeeView();
     populateResolved();
 });
@@ -31,7 +31,7 @@ viewResolved.addEventListener('click', (e) => {
 viewEmployees.addEventListener('click', (e) => {
     e.preventDefault();
     clearRequestInfo();
-    hideRequestsTable();
+    clearTable();
     clearEmployeeView();
     populateViewEmployees();
 });
@@ -39,7 +39,7 @@ viewEmployees.addEventListener('click', (e) => {
 viewPending.addEventListener('click', (e) => {
     e.preventDefault();
     clearRequestInfo();
-    hideRequestsTable();
+    clearTable();
     clearEmployeeView();
     showRequestsTable();
     populateViewPending();
@@ -78,12 +78,14 @@ async function searchReqest() {
         tableBody.appendChild(row);
     }
     resolveRequests.addEventListener('click', (e)=>{
+        clearTable();
         updateRequests(body);
         
     });
 }
 
 async function updateRequests(body){
+    document.getElementById("search-table").innerHTML = '';
     let i = 0;
     let requestArray = [];
     for(let key in body){
@@ -128,6 +130,7 @@ async function populateViewPending() {
         tableBody.appendChild(row);
     }
     resolveRequests.addEventListener('click', (e)=>{
+        document.getElementById("search-table").innerHTML = '';
         updateRequests(body);
     });
 
@@ -184,4 +187,8 @@ function hideRequestsTable() {
 
 function clearEmployeeView() {
     document.getElementById("employee-view").innerHTML = '';
+}
+
+function clearTable(){
+    document.getElementById("search-table").innerHTML = '';
 }

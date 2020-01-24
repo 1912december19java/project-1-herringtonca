@@ -54,12 +54,11 @@ function populateNewRequest() {
 async function sendNewReqest() {
     let request = {};
     request.amount = document.getElementById('amount').value;
-    request.description = document.getElementById('description').value;
-
-    let response = await fetch(requestUri, { method: 'POST', body: JSON.stringify(request) });
-    if (response.status >= 200 && response.status < 300) {
+    request.description = document.getElementById('description').value;        
+    let response = await fetch(requestUri, { method: 'POST', body: JSON.stringify(request)});
+    if (response.ok) {
         showAlertsSuccess();
-     }
+    }
 }
 
 async function populateViewHistory() {
@@ -87,7 +86,7 @@ async function populateViewPending() {
 }
 
 function showAlertsSuccess() {
-    hideTable();
+    document.getElementById('bootstrap-alert-success').style.display = 'block';
     setTimeout(function () { document.getElementById('bootstrap-alert-success').style.display = 'none' }, 5000);
 }
 

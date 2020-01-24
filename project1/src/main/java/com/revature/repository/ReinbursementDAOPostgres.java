@@ -175,7 +175,7 @@ public class ReinbursementDAOPostgres implements ReinbursementDAO {
     PreparedStatement stmt = null;
     ResultSet rs = null;
     try {
-      stmt = conn.prepareStatement("SELECT * FROM users");
+      stmt = conn.prepareStatement("SELECT * FROM users ORDER BY user_type DESC");
       if (stmt.execute()) {
         rs = stmt.getResultSet();
       }
